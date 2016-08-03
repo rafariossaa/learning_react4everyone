@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- video 4: Condictionals JSX and parent child relationships -->
+<!-- video 5: Working with State : https://www.youtube.com/watch?v=53PXPK6yY30 -->
 <html>
   <head>
     <script src="build/react.js"></script>
@@ -24,6 +24,16 @@
           }
         },
 
+        getInitialState : function () {
+          return {
+            value: 1
+          }
+        },
+        componentDidMount: function () {  // Se ejecuta sólo cuando el componente es montado
+          this.setState ({
+            value: this.state.value + 19  // Cambia el state value 
+          })
+        },
         render: function () {
           var greeting = "World";
 
@@ -32,7 +42,10 @@
           }
 
           return ( 
+            <div>
             <h1>Hello {greeting}</h1>
+            {this.state.value}
+            </div>
             )
         }
       });
