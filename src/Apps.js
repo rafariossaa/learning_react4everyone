@@ -1,13 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-
+import ContactsList from './ContactsList'
 
 class App extends React.Component {
 	render() {
 		return(
 			<div>
 			<h1>Contact List</h1>
+			<ContactsList />
 			</div>
 		)
 	}
@@ -15,4 +16,5 @@ class App extends React.Component {
 
 
 
-render(<App />, document.getElementById('app')); 
+render(<App />, document.getElementById('app')
+       ); 
