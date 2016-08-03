@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- video 3: Properties -->
+<!-- video 4: Condictionals JSX and parent child relationships -->
 <html>
   <head>
     <script src="build/react.js"></script>
@@ -10,13 +10,39 @@
   <body>
     <div id="area"></div>
     <script type="text/babel">
-
-
+      
       var HelloWorld = React.createClass({
 
         propTypes : {
+          name: React.PropTypes.string,  // indica el tipo de datos que va a tener name
+          isPerson: React.PropTypes.bool
+        },
+
+        getDefaultProps: function () {  // Establece los valores por defectos para la propiedades
+          return {
+            name : 'Tim'  // Valor por defecto para name
+          }
+        },
+
+        render: function () {
+          var greeting = "World";
+
+          if (this.props.isPerson) {
+             greeting = (<Person name={this.props.name} />)
+          }
+
+          return ( 
+            <h1>Hello {greeting}</h1>
+            )
+        }
+      });
+
+
+
+      var Person = React.createClass({
+
+        propTypes : {
           name: React.PropTypes.string  // indica el tipo de datos que va a tener name
-          //name: React.PropTypes.string.isRequired    // tipo string y además obligatorio
         },
 
         getDefaultProps: function () {  // Establece los valores por defectos para la propiedades
@@ -27,14 +53,14 @@
 
         render: function () {
           return ( 
-            <h1>Hello {this.props.name}</h1>
+            <span>{this.props.name}</span>
             )
         }
       });
 
       // renderiza el componente 
       ReactDOM.render(
-        <HelloWorld name="periquillo"/>,
+        <HelloWorld name="periquillo" isPerson={true} />,
         document.getElementById('area')
       );
 
