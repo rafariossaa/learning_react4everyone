@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<!-- video 5: Working with State : https://www.youtube.com/watch?v=53PXPK6yY30 -->
+<!-- video 6: Click Events & A Basic lifecycle method - https://www.youtube.com/watch?v=tKwrl4HopeU -->
 <html>
   <head>
     <script src="build/react.js"></script>
@@ -30,10 +30,17 @@
           }
         },
         componentDidMount: function () {  // Se ejecuta sólo cuando el componente es montado
-          this.setState ({
-            value: this.state.value + 19  // Cambia el state value 
-          })
         },
+
+        _addByOne : function() {   // método nuestro, se recomienda que empiece por '_'
+          this.setState ({
+            value: this.state.value + 1 
+          });
+
+        },
+
+
+
         render: function () {
           var greeting = "World";
 
@@ -43,8 +50,9 @@
 
           return ( 
             <div>
-            <h1>Hello {greeting}</h1>
-            {this.state.value}
+              <h1>Hello {greeting}</h1>
+              {this.state.value}
+              <button onClick={this._addByOne}>Click Me</button>  
             </div>
             )
         }
