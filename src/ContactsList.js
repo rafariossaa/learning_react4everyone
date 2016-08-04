@@ -3,9 +3,20 @@ import React from 'react';
 import Contact from './Contact'
 
 class ContactsList extends React.Component {
+    constructor() {
+      super();
+      this.state = {
+         search : 'Level Up'
+      };
+    }
+
+    updateSearch(event) {
+    	this.setState ({search: event.target.value.substring(0,20) });
+    }
 
 	render() {
 		return(
+			<div>
 			<ul>
 			  { 
 			  	this.props.contacts.map( (contact)=> {
@@ -13,6 +24,10 @@ class ContactsList extends React.Component {
 			    })
 			  }
 			</ul>
+			<input type="text" 
+			       value={this.state.search} 
+			       onChange={this.updateSearch.bind(this)} />
+			</div>
 		)
 	}
 }
