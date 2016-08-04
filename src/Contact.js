@@ -1,15 +1,12 @@
 import React from 'react';
 
 
-class Contact extends React.Component {
+// Cambiado a un functional stateless component
 
-	render() {
-		return(
-			  <li>
-			  {this.props.contact.name} {this.props.contact.phone}
-			  </li>
-		)
-	}
-}
+const Contact = ({contact, item}) => 
+       <li>
+		  {contact.name} {contact.phone} {item}
+	  </li>
+
 
 export default Contact;
